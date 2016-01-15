@@ -892,7 +892,11 @@ fi
 [ $asm = no ] && AS=""
 [ "x$AS" = x ] && asm="no" || asm="yes"
 
+if [ $asm = no -a \( $ARCH = ARM -o $ARCH = AARCH64 \) ] ; then
+echo "" #arm or arm64
+else
 define ARCH_$ARCH
+fi
 define SYS_$SYS
 
 define STACK_ALIGNMENT $stack_alignment
